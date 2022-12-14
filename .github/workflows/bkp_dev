@@ -1,0 +1,38 @@
+name: "dev"
+on:
+  push:
+    branches: [dev]
+    paths:
+      - "**/src/**"
+      - "**/tests/**"
+      - "*.sln"
+      - "**/workflows/dev.yml"
+env:
+  RELEASE_VERSION: 1.0.0-beta.$GITHUB_RUN_NUMBER
+  DOTNET_VERSION: "8.0"
+  NUPKG_SOURCE: "https://api.nuget.org/v3/index.json"
+  NUPKG_ACCESS_TOKEN: "${{ secrets.NUPKG_ACCESS_TOKEN }}"
+jobs:
+  dev:
+    name: dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore
+      - name: Packing
+        run: |
+          for project in src/**/*.csproj; do\
+            dotnet pack ${project} -c Release --no-restore --no-build -p:Version=${{ env.RELEASE_VERSION }} -o artifacts;\
+          done
+      - name: Publishing Artifacts
+        run: dotnet nuget push artifacts/*.nupkg -s ${{ env.NUPKG_SOURCE }} -k ${{ env.NUPKG_ACCESS_TOKEN }} --skip-duplicate

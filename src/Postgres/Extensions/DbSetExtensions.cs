@@ -1,0 +1,29 @@
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Fwks.Core.Domain;
+
+namespace Fwks.Postgres.Extensions;
+
+public static class DbSetExtensions
+{
+    public static async Task<Page<TEntity>> GetPageAsync<TEntity, TKeyType>(this DbSet<TEntity> dbSet, int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = default)
+        where TEntity : Entity<TKeyType>
+        where TKeyType : struct
+    {
+        var query = dbSet.AsNoTracking();
+
+        if (predicate != default)
+            query = query.Where(predicate);
+
+        return new Page<TEntity>
+        {
+            CurrentPage = currentPage,
+            PageSize = pageSize,
+            Items = await query.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync(),
+            TotalItems = await query.CountAsync()
+        };
+    }
+}

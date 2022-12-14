@@ -1,0 +1,78 @@
+name: release dev nuget packages
+
+on:
+  push:
+    branches: [dev]
+    # paths: ["**/src/**"]
+
+env:
+  DOTNET_VERSION: "8.0"
+  
+  PROJECT_CORE: 'AspNetCore'
+  PROJECT_ASPNETCORE: 'Core'
+  PROJECT_SECURITY: 'Security'
+  PROJECT_MONGODB: 'MongoDb'
+  PROJECT_REDIS: 'Redis'
+
+jobs:
+
+  build:
+    name: Build new Fwks nuget packages
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore projects
+        run: dotnet restore
+
+      - name: Build projects
+        run: dotnet build -c Release --no-restore
+
+      - id: modified_core
+        uses: pheel/path-watcher-action@v1
+        with:
+          paths: '**/src/${{ env.PROJECT_CORE }}**'
+
+      - name: Generating Fwks.${{ env.PROJECT_CORE }} package
+        if: steps.modified.outputs.modified_core
+        run: dotnet pack -c Release --no-restore --no-build -o artifacts
+        working-directory: ./src/${{ env.PROJECT_CORE }}
+
+      # - name: Upload artifacts
+      #   if: github.event_name == 'push' && contains(github.event.head_commit.modified, '/src/${{ env.PROJECT_CORE }}/')
+      #   uses
+
+      - name: Generating Fwks.${{ env.PROJECT_ASPNETCORE }} package
+        run: dotnet pack -c Release --no-restore --no-build -o artifacts
+        working-directory: ./src/${{ env.PROJECT_ASPNETCORE }}
+
+      # - name: Generating Fwks.${{ env.PROJECT_SECURITY }} package
+      #   if: github.event_name == 'push' && contains(github.event.head_commit.modified, '/src/${{ env.PROJECT_SECURITY }}/')
+      #   run: dotnet pack -c Release --no-restore --no-build -o artifacts
+      #   working-directory: ./src/${{ env.PROJECT_SECURITY }}
+
+      # - name: Generating Fwks.${{ env.PROJECT_MONGODB }} package
+      #   if: github.event_name == 'push' && contains(github.event.head_commit.modified, '/src/${{ env.PROJECT_MONGODB }}/')
+      #   run: dotnet pack -c Release --no-restore --no-build -o artifacts
+      #   working-directory: ./src/${{ env.PROJECT_MONGODB }}
+
+      # - name: Generating Fwks.${{ env.PROJECT_REDIS }} package
+      #   if: github.event_name == 'push' && contains(github.event.head_commit.modified, '/src/${{ env.PROJECT_REDIS }}/')
+      #   run: dotnet pack -c Release --no-restore --no-build -o artifacts
+      #   working-directory: ./src/${{ env.PROJECT_REDIS }}
+
+      # - name: publish artifacts
+      #   run: dotnet nuget push artifacts/*.nupkg -s ${{ env.NUPKG_SOURCE }} -k ${{ env.NUPKG_ACCESS_TOKEN }} --skip-duplicate
+
+  # publish:
+  #   needs: build
+  #   name: Publishes Fwks packages
+  #   runs-on: ubuntu-latest
+  #   steps:
+
+  #     - run: ls -l

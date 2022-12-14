@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <AssemblyName>Fwks.AspNetCore</AssemblyName>
+        <RootNamespace>Fwks.AspNetCore</RootNamespace>
+        <PackageId>Fwks.AspNetCore</PackageId>
+        <Company>fwks</Company>
+        <Authors>mwznn</Authors>
+        <Product>fwks @ AspNetCore</Product>
+        <Description>AspNetCore helpers and default implementations for everyday use on our projects.</Description>
+        <RepositoryUrl>https://github.com/mwznn/fwks</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/mwznn/fwks</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../docs/aspnetcore/README.md" Pack="True" PackagePath="\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+        <PackageReference Include="Asp.Versioning.Mvc" Version="7.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.1.0" />
+        <PackageReference Include="Microsoft.OpenApi" Version="1.6.10" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core\Core.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <AssemblyName>Fwks.Redis</AssemblyName>
+        <RootNamespace>Fwks.Redis</RootNamespace>
+        <PackageId>Fwks.Redis</PackageId>
+        <Company>fwks</Company>
+        <Authors>mwznn</Authors>
+        <Product>fwks @ Redis</Product>
+        <Description>AspNetCore helpers and default implementations for everyday use on our projects.</Description>
+        <RepositoryUrl>https://github.com/mwznn/fwks</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/mwznn/fwks</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    
+</PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../docs/redis/README.md" Pack="True" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+        <PackageReference Include="StackExchange.Redis" Version="2.7.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Core\Core.csproj" />
+      <ProjectReference Include="..\..\src\Security\Security.csproj" />
+    </ItemGroup>
+
+</Project>
