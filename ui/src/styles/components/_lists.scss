@@ -1,0 +1,13 @@
+@use '../abstracts/variables' as *;
+
+mat-list.notifications {
+    mat-list-item {
+        p {
+            text-align: center;
+            margin: 0;
+        }
+        p[matlistitemtitle] {
+            color: $warn
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.fx-spacer {
+    flex: 1 1 auto !important;
+}
+
+.fx {
+    display: flex !important;
+}
+
+// Justify Content
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+// Alignment
+.align-items-center {
+    align-items: center !important;
+}
+
+// Direction
+.fx-column {
+    flex-direction: column !important;
+}
+
+.fx-row {
+    flex-direction: row !important;
+}

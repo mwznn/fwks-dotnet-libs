@@ -1,0 +1,18 @@
+# common files
+.git
+.gitignore
+README.md
+LICENSE
+.vscode
+.vs
+docker
+docs
+
+# dotnet specific
+[b|B]in
+[O|o]bj
+/tools
+
+# angular specific
+npm-debug.log
+**/node_modules

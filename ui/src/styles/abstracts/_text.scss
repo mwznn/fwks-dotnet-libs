@@ -1,0 +1,13 @@
+ @use './variables' as *;
+ 
+ @each $align, $position in $aligments { 
+     .text-#{$align} {
+         text-align: $position !important;
+     }
+ }
+
+ @each $type, $value in $app-theme-colors {
+    .text-#{$type} {
+        color: $value !important;
+    }
+ }

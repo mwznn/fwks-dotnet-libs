@@ -1,0 +1,35 @@
+@use './variables' as *;
+
+@each $margin-size, $margin-spacer in $spacers {
+    
+    .mt-#{$margin-size} {
+        margin-top: $margin-spacer !important; 
+    }
+
+    .mb-#{$margin-size} {
+        margin-bottom: $margin-spacer !important;
+    }
+
+    .ms-#{$margin-size} {
+        margin-left: $margin-spacer !important;
+    }
+
+    .me-#{$margin-size} {
+        margin-right: $margin-spacer !important;
+    }
+
+    .mx-#{$margin-size} {
+        @extend .ms-#{$margin-size};
+        @extend .me-#{$margin-size};
+    }
+
+    .my-#{$margin-size} {
+        @extend .mt-#{$margin-size};
+        @extend .mb-#{$margin-size};
+    }
+
+    .m-#{$margin-size} {
+        @extend .mx-#{$margin-size};
+        @extend .my-#{$margin-size};
+    }
+}
