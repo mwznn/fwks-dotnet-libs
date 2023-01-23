@@ -17,3 +17,23 @@ public abstract class EntityTypeConfiguration<TEntity, TKeyType> : IEntityTypeCo
             .Ignore(x => x.Notifications);
     }
 }
+
+public class CreditCardPaymentConfiguration : IEntityTypeConfiguration<CreditCardPayment>
+{
+    public void Configure(EntityTypeBuilder<CreditCardPayment> builder)
+    {
+        builder
+            .OwnsOne(x => x.PaymentInfo);
+    }
+}
+
+public class Payment
+{
+
+}
+
+public class CreditCardPayment
+{
+    public string PropertyX { get; set; }
+    public Payment PaymentInfo { get; set; }
+}

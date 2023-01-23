@@ -12,7 +12,15 @@ docs
 [b|B]in
 [O|o]bj
 /tools
+**/[b|B]in
+**/[O|o]bj
+**/out
+**/.vscode
+**/.vs
+.dotnet
+.Microsoft.DotNet.ImageBuilder
 
 # angular specific
 npm-debug.log
 **/node_modules
+**/dist

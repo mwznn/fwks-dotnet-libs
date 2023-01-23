@@ -7,7 +7,7 @@ export const environment = {
   authServer: {
     url: 'http://live-keycloak-instance/auth',
     realm: 'dev-service',
-    clientId: 'dev-ui',
+    clientId: 'development',
     scopes: 'openid profile email roles'
   }
 }

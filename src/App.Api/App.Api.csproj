@@ -4,7 +4,6 @@
         <TargetFramework>net7.0</TargetFramework>
         <AssemblyName>Fwks.FwksService.App.Api</AssemblyName>
         <RootNamespace>Fwks.FwksService.App.Api</RootNamespace>
-        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>

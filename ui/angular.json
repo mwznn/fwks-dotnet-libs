@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fwks-ui",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -80,7 +80,7 @@
               ],
               "outputHashing": "all"
             },
-            "qa": {
+            "docker": {
               "budgets": [
                 {
                   "type": "initial",
@@ -96,7 +96,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.qa.ts"
+                  "with": "src/environments/environment.docker.ts"
                 }
               ],
               "outputHashing": "all"
@@ -118,8 +118,8 @@
             "production": {
               "browserTarget": "fwks-ui:build:production"
             },
-            "qa": {
-              "browserTarget": "fwks-ui:build:qa"
+            "docker": {
+              "browserTarget": "fwks-ui:build:docker"
             },
             "development": {
               "browserTarget": "fwks-ui:build:development"

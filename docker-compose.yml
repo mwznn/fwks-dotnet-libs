@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  ui:
+    container_name: ui
+    build:
+      dockerfile: docker/Dockerfile_UI
+      args:
+        ENVIRONMENT: ${ENVIRONMENT}
+    ports:
+      - "25000:80"
+    volumes:
+      - ./docker/config/ui-nginx.conf:/etc/nginx/conf.d/default.conf
+  api:
+    container_name: api
+    build:
+      dockerfile: docker/Dockerfile_Api
+      args:
+        ENVIRONMENT: ${ENVIRONMENT}
+    env_file:
+      - docker/config/api.env
+    ports:
+      - "25001:80"
+networks:
+  default:
+    external: true
+    name: net-sandbox

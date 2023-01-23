@@ -11,7 +11,7 @@ export const environment = {
   authServer: {
     url: 'http://localhost:9999/auth',
     realm: 'development',
-    clientId: 'dev-ui',
+    clientId: 'development',
     scopes: 'openid profile email roles'
   }
 }
