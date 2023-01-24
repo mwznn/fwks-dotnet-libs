@@ -1,3 +1,6 @@
+# custom
+**/artifacts
+
 # common files
 .git
 .gitignore

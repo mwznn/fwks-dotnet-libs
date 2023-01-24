@@ -2,17 +2,28 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <AssemblyName>Fwks.FwksService.Core</AssemblyName>
-        <RootNamespace>Fwks.FwksService.Core</RootNamespace>
+        <AssemblyName>Fwks.Core</AssemblyName>
+        <RootNamespace>Fwks.Core</RootNamespace>
+        <PackageId>Fwks.Core</PackageId>
+        <Company>fwks</Company>
+        <Authors>fwks dev team</Authors>
+        <Product>fwks @ Core</Product>
+        <Description>Core helpers and default implementations for everyday use on our projects.</Description>
+        <RepositoryUrl>https://github.com/morilon/fwks</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/morilon/fwks</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentValidation" Version="11.4.0" />
-        <PackageReference Include="Mediator.Abstractions" Version="2.0.30" />
+        <None Include="../../docs/core/README.md" Pack="True" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\libs\Core\Core.csproj" />
+        <PackageReference Include="FluentValidation" Version="11.4.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

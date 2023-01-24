@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <AssemblyName>Fwks.Security</AssemblyName>
+        <RootNamespace>Fwks.Security</RootNamespace>
+        <PackageId>Fwks.Security</PackageId>
+        <Company>fwks</Company>
+        <Authors>fwks dev team</Authors>
+        <Product>fwks @ Security</Product>
+        <Description>Security helpers and default implementations for everyday use on our projects.</Description>
+        <RepositoryUrl>https://github.com/morilon/fwks</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/morilon/fwks</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../docs/security/README.md" Pack="True" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Hashids.Net" Version="1.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core\Core.csproj" />
+    </ItemGroup>
+
+</Project>

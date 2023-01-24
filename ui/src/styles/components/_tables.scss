@@ -1,9 +1,0 @@
-@use '../abstracts' as *;
-
-.mat-mdc-row:hover .mat-mdc-cell {
-    background-color: $table-hover-background;
-}
-
-.table-no-results {
-    text-align: center;
-}

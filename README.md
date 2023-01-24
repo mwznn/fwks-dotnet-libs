@@ -1,5 +1,29 @@
-# WIP
+# Fwks Service App
 
-This repository is still a work in progress. 
+Libraries used to standerize my apps.
 
-Things may not work properly or change rapidly. :dance:
+## Software
+
+- [Visual Studio 2022 Latest](https://visualstudio.microsoft.com/)
+- [.NET Core SDK 7](https://dotnet.microsoft.com/download/dotnet-core)
+- [Chocolatey](https://chocolatey.org/) (optional) 
+  - `choco install make`
+- [Solution Error Visualizer](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.SolutionErrorVisualizer2022) (optional)
+
+## [Core](./docs/core/README.md)
+WIP
+
+## [AspNetCore](./docs/aspnetcore/README.md)
+WIP
+
+## [MongoDb](./docs/mongodb/README.md)
+WIP
+
+## [Postgres](./docs/postgres/README.md)
+WIP
+
+## [Redis](./docs/redis/README.md)
+WIP
+
+## [Security](./docs/security/README.md)
+WIP

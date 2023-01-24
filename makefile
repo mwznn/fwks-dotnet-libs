@@ -1,25 +1,8 @@
-ApiProject=--project ./src/App.Api/App.Api.csproj
-DataProject=--startup-project ./src/Infra/Infra.csproj
-
-run:
+pack:
+	rm artifacts -rdf
 	dotnet restore
-	dotnet build
-	dotnet run ${ApiProject} --no-build &
-	cd ui && ng serve -o
+	dotnet build -c Release
 
-run-no-build:
-	dotnet run ${ApiProject} --no-build
-
-db-create:
-	dotnet ef ${DataProject} migrations add DropkickDb -o Postgres/Migrations/History
-db-drop:
-	dotnet ef ${DataProject} database drop
-db-update:
-	dotnet ef ${DataProject} database update -- --environment Development
-db-script:
-	dotnet ef ${DataProject} migrations script -- --environment Development
-
-ef-install:
-	dotnet tool install --global dotnet-ef
-ef-update:
-	dotnet tool update --global dotnet-ef
+	for project in src/**/*.csproj; do\
+		dotnet pack $${project} --no-restore --no-build -c Release -o artifacts/ --version-suffix nuget-test1 -p:Version=0.0.$$(date +"%y%j") ;\
+	done

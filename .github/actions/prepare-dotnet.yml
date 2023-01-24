@@ -1,0 +1,11 @@
+name: 'Prepare dotnet'
+description: 'Prepare, restore, build and test dotnet solution'
+runs:
+  using: composite
+  steps:
+    - name: Restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore

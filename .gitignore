@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,visualstudiocode,angular
 
 ### Custom ###
+secrets.md
 
 ### Angular ###
 ## Angular ##
@@ -12,6 +13,8 @@ app/**/*.js
 app/**/*.js.map
 
 # dependencies
+**/node_modules/
+**/bower_components/
 node_modules/
 bower_components/
 
@@ -118,6 +121,7 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+**/artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
