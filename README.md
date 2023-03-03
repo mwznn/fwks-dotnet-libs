@@ -2,6 +2,8 @@
 
 Libraries used to standerize my apps.
 
+## The service example was moved to [this repository](https://github.com/morilon/fwks-service)
+
 ## Software
 
 - [Visual Studio 2022 Latest](https://visualstudio.microsoft.com/)
