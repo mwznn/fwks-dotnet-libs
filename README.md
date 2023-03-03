@@ -1,8 +1,10 @@
 # Fwks Service App
 
+[![build](https://github.com/morilon/fwks/actions/workflows/main.yml/badge.svg)](https://github.com/morilon/fwks/actions/workflows/main.yml)
+
 Libraries used to standerize my apps.
 
-## The service example was moved to [this repository](https://github.com/morilon/fwks-service)
+## The service example was moved to [fwks service](https://github.com/morilon/fwks-service)
 
 ## Software
 
