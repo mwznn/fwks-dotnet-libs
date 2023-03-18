@@ -1,4 +1,4 @@
-# Fwks Service App
+# Fwks Libraries
 
 [![build](https://github.com/morilon/fwks/actions/workflows/main.yml/badge.svg)](https://github.com/morilon/fwks/actions/workflows/main.yml)
 
