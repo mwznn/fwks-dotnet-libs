@@ -3,17 +3,17 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/src/**'
-      - '**/tests/**'
-      - '*.sln'
+      - '**/libs/src/**'
+      - '**/libs/tests/**'
+      - 'libs/*.sln'
 env:
   RELEASE_VERSION: 1.0.0-beta$GITHUB_RUN_NUMBER
   DOTNET_VERSION: "7.0"
   NUPKG_SOURCE: "https://api.nuget.org/v3/index.json"
   NUPKG_ACCESS_TOKEN: "${{ secrets.NUPKG_ACCESS_TOKEN }}"
 jobs:
-  main:
-    name: main
+  libs:
+    name: libs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

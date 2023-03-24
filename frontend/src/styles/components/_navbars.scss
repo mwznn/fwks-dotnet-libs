@@ -1,0 +1,106 @@
+@use '../abstracts/variables' as var;
+
+mat-drawer-container.sidenav {
+    height: 100vh;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            &.nav-title {
+                font-size: 18px;
+                font-weight: 500;
+
+                span {
+                    vertical-align: super;
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    mat-drawer {
+        width: 100%;
+        max-width: 185px;
+
+        nav {
+            ul {
+                display: grid;
+                justify-items: center;
+
+                li {
+                    margin: 0.25rem 0;
+
+                    &.nav-logo {
+                        margin-top: 1rem;
+                    }
+
+                    &.nav-title {
+                        margin: 1rem 0;
+                    }
+                }
+
+                li:last-child {
+                    position: absolute;
+                    bottom: 0.25rem;
+                }
+            }
+        }
+    }
+
+    header {
+        background-color: var.$primary;
+        color: var.$white;
+        padding: 0 1rem;
+
+        nav {
+            ul {
+                display: flex;
+                align-items: center;
+
+                li {
+                    margin: 0.5rem 0;
+
+                    &.nav-logo {
+                        margin-right: 1rem;
+
+                        img {
+                            max-height: 42px;
+                        }
+                    }
+
+                    &.nav-title {
+                        margin-right: 0.5rem;
+                    }
+
+                    // @media (min-width: 960px) {
+                    //     &.nav-list-item {
+                    //         display: block;
+                    //     }
+
+                    //     &.nav-list-item:last-child {
+                    //         display: none;
+                    //     }
+                    // }
+
+                    // @media (max-width: 960px) {
+                    //     &.nav-list-item {
+                    //         display: none;
+                    //     }
+
+                    //     &.nav-list-item:last-child {
+                    //         display: block;
+                    //     }
+                    // }
+
+                    &.nav-divider {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}

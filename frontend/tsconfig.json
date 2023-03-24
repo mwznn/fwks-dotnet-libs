@@ -1,0 +1,78 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@app/environment": [
+        "src/environments/environment"
+      ],
+      "@app/core/components": [
+        "src/app/core/components/index.ts"
+      ],
+      "@app/core/configuration": [
+        "src/app/core/configuration/index.ts"
+      ],
+      "@app/core/extensions": [
+        "src/app/core/extensions/index.ts"
+      ],
+      "@app/core/functions": [
+        "src/app/core/functions/_functions.ts"
+      ],
+      "@app/core/guards": [
+        "src/app/core/guards/index.ts"
+      ],
+      "@app/core/interceptors": [
+        "src/app/core/interceptors/index.ts"
+      ],
+      "@app/core/models": [
+        "src/app/core/models/index.ts"
+      ],
+      "@app/core/providers": [
+        "src/app/core/providers/_providers.ts"
+      ],
+      "@app/core/services": [
+        "src/app/core/services/index.ts"
+      ],
+      "@app/pages": [
+        "src/app/pages/index.ts"
+      ],
+      "@app/shared/components": [
+        "src/app/shared/components/index.ts"
+      ],
+      "@app/shared/directives": [
+        "src/app/shared/directives/index.ts"
+      ],
+      "@app/shared/pipes": [
+        "src/app/shared/pipes/index.ts"
+      ],
+    },
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

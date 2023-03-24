@@ -1,0 +1,52 @@
+<mat-list>
+    <mat-list-item matListItemTitle>
+        <span matListItemTitle class="fx justify-content-center"> THIS IS A PROTECTED PAGE </span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <div class="fx justify-content-space-between">
+            <span>Id: {{ ctx.profile!.id }}</span>
+            <span>Full Name: {{ ctx.profile!.firstName }} {{ ctx.profile!.lastName }}</span>
+            <span>E-mail: {{ ctx.profile!.email }}</span>
+        </div>
+    </mat-list-item>
+</mat-list>
+
+<mat-divider class="my-2"></mat-divider>
+
+<form class="form-x" [formGroup]="form">
+    <mat-form-field class="control">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+        <button mat-icon-button matSuffix (click)="search()" aria-label="search customers">
+            <mat-icon fontIcon="search"></mat-icon>
+        </button>
+        <mat-hint>Search customers by name</mat-hint>
+    </mat-form-field>
+</form>
+
+<mat-list *ngIf="customers.length > 0 && !ctx.isLoadingResources">
+    <mat-list-item class="text-center">{{ customers.length }} customer(s) found.</mat-list-item>
+    <mat-list-item *ngFor="let customer of customers">
+        <span matListItemTitle>Name: {{ customer.name }}</span>
+        <span matListItemLine>E-mail: {{ customer.email }}</span>
+        <span matListItemLine>DOB: {{ customer.dateOfBirth }}</span>
+    </mat-list-item>
+</mat-list>
+
+<p *ngIf="res && res.status === 404" class="text-center text-warn">
+    No customers were found for filter "{{ form.controls.name.value }}".
+</p>
+
+<mat-list class="notifications" *ngIf="res && res.status">
+    <mat-list-item>
+        <p matListItemTitle>{{ res!.message }}</p>
+        <p matListItemLine>Correlation Id: {{ res!.correlationId }}</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <p matListItemLine *ngFor="let notification of res!.notifications; index as i">
+            #{{ i + 1 }}: {{ notification }}
+        </p>
+    </mat-list-item>
+</mat-list>

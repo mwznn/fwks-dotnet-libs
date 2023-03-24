@@ -1,0 +1,7 @@
+@use './variables' as var;
+
+@each $type, $value in var.$app-theme-colors {
+    .text-#{$type} {
+        color: $value !important;
+    }
+}

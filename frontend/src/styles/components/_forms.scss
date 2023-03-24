@@ -1,0 +1,14 @@
+form.form-x {
+    display: grid;
+
+    mat-form-field {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    div.actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}

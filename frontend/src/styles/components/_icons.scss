@@ -1,0 +1,7 @@
+@use '../abstracts/variables' as var;
+
+@each $key, $value in var.$app-theme-colors {
+    mat-icon.mat-#{$key} {
+        color: $value;
+    }
+}

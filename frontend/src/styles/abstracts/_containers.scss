@@ -1,0 +1,18 @@
+@use './variables' as var;
+
+@mixin container-breakpoint($min-width, $max-width) {
+    @media (min-width: $min-width) {
+        .container {
+            max-width: $max-width;
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@each $container-min-width, $container-max-width in var.$container-breakpoints {
+    @include container-breakpoint($container-min-width, $container-max-width);
+}

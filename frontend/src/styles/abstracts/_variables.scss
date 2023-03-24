@@ -1,0 +1,57 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+// THEME
+@include mat.core();
+
+$primary-palette: mat.define-palette(mat.$indigo-palette, 500);
+$accent-palette: mat.define-palette(mat.$purple-palette, 500);
+$warn-palette: mat.define-palette(mat.$red-palette, 500);
+$success-palette: mat.define-palette(mat.$green-palette, 500);
+
+$app-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $primary-palette,
+            accent: $accent-palette,
+            warn: $warn-palette,
+        ),
+        typography: mat.define-typography-config(),
+        density: 0,
+    )
+);
+
+@include mat.all-component-themes($app-theme);
+
+// COLOR PALETTE
+
+$white: #ffffff;
+$black: #000000;
+$gray: #e0e0e0;
+$primary: mat.get-color-from-palette($primary-palette);
+$accent: mat.get-color-from-palette($accent-palette);
+$warn: mat.get-color-from-palette($warn-palette);
+$success: mat.get-color-from-palette($success-palette);
+
+$app-theme-colors: (
+    'primary': $primary,
+    'warn': $warn,
+    'accent': $accent,
+    'success': $success,
+);
+
+// BREAKPOINTS
+
+$default-breakpoint: 768px;
+$navbar-breakpoint: calc($default-breakpoint * 1.25);
+$container-breakpoints: (
+    576px: 540px,
+    768px: 720px,
+    992px: 960px,
+    1200px: 1140px,
+    1400px: 1320px,
+) !default;
+
+// TABLES
+
+$table-hover-background: $gray;

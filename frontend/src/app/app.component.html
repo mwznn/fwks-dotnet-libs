@@ -1,0 +1,14 @@
+<mat-drawer-container class="sidenav">
+    <mat-drawer #drawer mode="over" [autoFocus]="false">
+        <app-navbar [drawer]="drawer" color="basic" [sidenav]="true"></app-navbar>
+    </mat-drawer>
+    <header>
+        <app-navbar class="container" [drawer]="drawer"></app-navbar>
+    </header>
+
+    <mat-progress-bar color="accent" *ngIf="ctx.isLoadingResources" mode="indeterminate"></mat-progress-bar>
+
+    <main class="container" role="main">
+        <router-outlet></router-outlet>
+    </main>
+</mat-drawer-container>

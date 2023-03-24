@@ -1,0 +1,75 @@
+<mat-tab-group dynamicHeight>
+    <mat-tab label="Dialogs: Data and Confirmation">
+        <div class="grid">
+            <form class="form-x">
+                <mat-form-field>
+                    <mat-label>What's your first name?</mat-label>
+                    <input matInput [(ngModel)]="firstName" name="firstName" placeholder="e.g. John" />
+                    <mat-hint>Use the modal to type your last name and we'll show the result passing data between
+                        components.</mat-hint>
+                </mat-form-field>
+                <div class="actions">
+                    <button type="button" mat-flat-button color="primary" (click)="openDataDialog()">
+                        Open Dialog
+                    </button>
+                </div>
+                <h3 *ngIf="firstName.length > 0 && lastName.length > 0">
+                    <strong> Full Name: {{ firstName }} {{ lastName }} </strong>
+                </h3>
+            </form>
+
+            <div class="wrapper">
+                <button mat-flat-button color="accent" (click)="openConfirmationDialog()">Open Dialog</button>
+                <div class="confirmation">
+                    <span>Modal Confirmation Result: </span>
+                    <mat-icon color="success" *ngIf="confirmationResult" aria-label="modal confirmation result yes" fontIcon="done"></mat-icon>
+                    <mat-icon color="warn" *ngIf="!confirmationResult" aria-label="modal confirmation result no" fontIcon="close"></mat-icon>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Tables: Pagination">
+        <form class="form-x">
+            <mat-form-field>
+                <mat-label>Filter for customers</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Doe" #input />
+            </mat-form-field>
+        </form>
+
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="guid">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button aria-label="delete customer action" (click)="deleteRow(row)">
+                        <mat-icon aria-label="delete customer icon" fontIcon="close" color="warn"></mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Name">Name</th>
+                <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+            </ng-container>
+
+            <mat-text-column name="dateOfBirth" headerText="DOB"></mat-text-column>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by E-mail">E-mail</th>
+                <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+            </ng-container>
+            <mat-text-column name="phoneNumber" headerText="Phone No."></mat-text-column>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell table-no-results" colspan="5">
+                    No customers matching the filter "{{ input.value }}"
+                </td>
+            </tr>
+        </table>
+
+        <mat-paginator [length]="dataSource.data.length" [pageSize]="10" [showFirstLastButtons]="true" arial-label="Select Page">
+        </mat-paginator>
+    </mat-tab>
+</mat-tab-group>
