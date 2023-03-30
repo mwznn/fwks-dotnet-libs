@@ -12,8 +12,8 @@ env:
   NUPKG_SOURCE: "https://api.nuget.org/v3/index.json"
   NUPKG_ACCESS_TOKEN: "${{ secrets.NUPKG_ACCESS_TOKEN }}"
 jobs:
-  libs:
-    name: libs
+  dev:
+    name: dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
