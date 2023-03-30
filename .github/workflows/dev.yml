@@ -1,11 +1,11 @@
-name: build
+name: "Publish Beta Version"
 on:
   push:
-    branches: [main]
+    branches: [dev]
     paths:
-      - '**/libs/src/**'
-      - '**/libs/tests/**'
-      - 'libs/*.sln'
+      - '**/src/**'
+      - '**/tests/**'
+      - '*.sln'
 env:
   RELEASE_VERSION: 1.0.0-beta$GITHUB_RUN_NUMBER
   DOTNET_VERSION: "7.0"
