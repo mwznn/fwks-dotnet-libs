@@ -1,8 +1,15 @@
-# Fwks Service App
+# Fwks Libraries
 
-App used to kickstart new applications.
+A set of libraries I use on my projects.
 
-## Software
+[![build](https://github.com/morilon/fwks/actions/workflows/main.yml/badge.svg)](https://github.com/morilon/fwks/actions/workflows/main.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L4L1JXUQN)
+
+## Software Requirements
+
+<details>
 
 ### Required
 
@@ -10,44 +17,20 @@ App used to kickstart new applications.
 - [.NET Core SDK 7](https://dotnet.microsoft.com/download/dotnet-core)
 - [Chocolatey](https://chocolatey.org/)
   - `choco install make`
-- [Node.js](https://nodejs.org/en/)
-  - `npm i @angular/cli -g`
 
 ### Optional
 
 - [Solution Error Visualizer](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.SolutionErrorVisualizer2022)
-- Choco Packages
-  - `choco install act-cli` for running github actions locally
-  - `choco install minikube` for running k8s locally
-- NPM Packages
-  - `npm i pnpm -g`
-  - `npm i depcheck -g`
 
-## Before running either locally or within docker
+</details>
 
-1. Create a user on [keycloak development realm](http://localhost:9999/auth/admin/master/console/#/development/users).
-2. Install or update dotnet ef tools, run `make ef-update`
-3. Execute `make db-update` to run migrations.
+## Docs
 
-## Running Locally
+This section is still a work in progress. 
 
-To start the apps, run `make app-run`
-
-## Running on Docker
-
-To start the apps using docker, run `make app-compose`
-
-## Environments endpoints
-
-- Development [UI](http://localhost:4200) / [Api](https://localhost:5001/swagger)
-- Docker [UI](http://localhost:25000) / [Api](https://localhost:25001/swagger)
-- Live [UI](WIP) / [Api](WIP)
-
-## Fwks Libraries Docs & Guides (WIP)
-
-- [AspNetCore](./docs/libs/aspnetcore/README.md)
-- [Core](./docs/libs/core/README.md)
-- [MongoDb](./docs/libs/mongodb/README.md)
-- [Postgres](./docs/libs/postgres/README.md)
-- [Redis](./docs/libs/redis/README.md)
-- [Security](./docs/libs/security/README.md)
+- [AspNetCore](./docs/aspnetcore/README.md)
+- [Core](./docs/core/README.md)
+- [MongoDb](./docs/mongodb/README.md)
+- [Postgres](./docs/postgres/README.md)
+- [Redis](./docs/redis/README.md)
+- [Security](./docs/security/README.md)

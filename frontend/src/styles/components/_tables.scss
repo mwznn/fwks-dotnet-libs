@@ -1,5 +1,0 @@
-@use '../abstracts/variables' as var;
-
-.mat-mdc-row:hover .mat-mdc-cell {
-    background-color: var.$table-hover-background;
-}
