@@ -14,25 +14,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "T. Tests", "T. Tests", "{74
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore", "src\AspNetCore\AspNetCore.csproj", "{657C516F-C684-4F52-9ED4-283CDFD1E6C0}"
 EndProject
-Project("{F040F126-672F-46A5-8F2F-E0A8D5165A59}") = "Core", "src\Core\Core.csproj", "{CA1F253E-B8EA-4782-9261-B1763F1AB3DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{CA1F253E-B8EA-4782-9261-B1763F1AB3DE}"
 EndProject
-Project("{F532B870-5172-41CB-AD27-767373439089}") = "Security", "src\Security\Security.csproj", "{DB38FCAA-0218-4EDB-80A8-6983C3395D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "src\Security\Security.csproj", "{DB38FCAA-0218-4EDB-80A8-6983C3395D24}"
 EndProject
-Project("{EB1AB893-1C7A-4F83-AAB4-FABB054C679F}") = "Postgres", "src\Postgres\Postgres.csproj", "{D6E04EAC-D5A0-40F1-91E3-56A6131CA324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Postgres", "src\Postgres\Postgres.csproj", "{D6E04EAC-D5A0-40F1-91E3-56A6131CA324}"
 EndProject
-Project("{2A36EA40-1BF0-4806-A68C-9AFB620D7C33}") = "MongoDb", "src\MongoDb\MongoDb.csproj", "{BC192684-FE12-4FFC-97D5-3B2193DD69D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb", "src\MongoDb\MongoDb.csproj", "{BC192684-FE12-4FFC-97D5-3B2193DD69D6}"
 EndProject
-Project("{6FC3C5A4-E9A5-4B16-BA81-99BA98219CF6}") = "Redis", "src\Redis\Redis.csproj", "{444BAB95-4F15-4E90-8337-A3EE8C56BBC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis", "src\Redis\Redis.csproj", "{444BAB95-4F15-4E90-8337-A3EE8C56BBC0}"
 EndProject
-Project("{DB35CE2E-5DF2-46CB-B3B3-D00ACF070299}") = "Tests.AspNetCore", "tests\Tests.AspNetCore\Tests.AspNetCore.csproj", "{02552DC6-EF76-42AF-A072-30DAADEF353C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.AspNetCore", "tests\Tests.AspNetCore\Tests.AspNetCore.csproj", "{02552DC6-EF76-42AF-A072-30DAADEF353C}"
 EndProject
-Project("{757DF72A-804E-452C-825E-8B83D9EEA372}") = "Tests.WebAppStub", "tests\Tests.WebAppStub\Tests.WebAppStub.csproj", "{D5D5663F-BE5D-4766-B07D-6565AB8A5C24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.WebAppStub", "tests\Tests.WebAppStub\Tests.WebAppStub.csproj", "{D5D5663F-BE5D-4766-B07D-6565AB8A5C24}"
 EndProject
-Project("{58C13909-4D5D-40BA-8BC4-2CE17DC69307}") = "Tests.Shared", "tests\Tests.Shared\Tests.Shared.csproj", "{C3AB80BA-08CD-4649-B900-7F53631116B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Shared", "tests\Tests.Shared\Tests.Shared.csproj", "{C3AB80BA-08CD-4649-B900-7F53631116B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Shared", "0. Shared", "{773F89AE-F675-4616-ADC7-4009F92BB0B1}"
 EndProject
-Project("{B6DE6EA8-C8B4-4257-84B0-B7C76A9EC51F}") = "Tests.Core", "tests\Tests.Core\Tests.Core.csproj", "{338AA1A6-635E-4695-A758-EF7DFDD28C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Core", "tests\Tests.Core\Tests.Core.csproj", "{338AA1A6-635E-4695-A758-EF7DFDD28C54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. CLI", "1. CLI", "{621F5DCD-869F-43E9-AC84-1DCF2B3FED07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwks.CLI", "src\Fwks.CLI\Fwks.CLI.csproj", "{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +84,10 @@ Global
 		{338AA1A6-635E-4695-A758-EF7DFDD28C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{338AA1A6-635E-4695-A758-EF7DFDD28C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{338AA1A6-635E-4695-A758-EF7DFDD28C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +98,7 @@ Global
 		{C3AB80BA-08CD-4649-B900-7F53631116B0} = {773F89AE-F675-4616-ADC7-4009F92BB0B1}
 		{773F89AE-F675-4616-ADC7-4009F92BB0B1} = {749667D7-8F60-41DB-85DF-0360985EED41}
 		{338AA1A6-635E-4695-A758-EF7DFDD28C54} = {749667D7-8F60-41DB-85DF-0360985EED41}
+		{244877F0-7F7A-4F8F-BBF7-7C11EA5C61B6} = {621F5DCD-869F-43E9-AC84-1DCF2B3FED07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {412D0937-67DB-4187-9E21-079508A99383}

@@ -2,6 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
         <AssemblyName>Fwks.Redis</AssemblyName>
         <RootNamespace>Fwks.Redis</RootNamespace>
         <PackageId>Fwks.Redis</PackageId>
