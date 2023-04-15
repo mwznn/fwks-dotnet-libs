@@ -1,6 +1,6 @@
 # Fwks Libraries
 
-A set of libraries I use on my projects.
+A set of libraries I use on my private projects projects.
 
 [![build](https://github.com/morilon/fwks/actions/workflows/main.yml/badge.svg)](https://github.com/morilon/fwks/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

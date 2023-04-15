@@ -6,8 +6,9 @@ on:
       - '**/src/**'
       - '**/tests/**'
       - '*.sln'
+      - '**/workflows/dev.yml'
 env:
-  RELEASE_VERSION: 1.0.0-beta-$GITHUB_RUN_NUMBER
+  RELEASE_VERSION: 1.0.0-beta.$GITHUB_RUN_NUMBER
   DOTNET_VERSION: "7.0"
   NUPKG_SOURCE: "https://api.nuget.org/v3/index.json"
   NUPKG_ACCESS_TOKEN: "${{ secrets.NUPKG_ACCESS_TOKEN }}"
