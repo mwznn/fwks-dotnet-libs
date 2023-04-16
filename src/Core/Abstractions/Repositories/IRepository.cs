@@ -14,7 +14,7 @@ public interface IRepository<TEntity, TKeyType>
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
     Task<List<TEntity>> GetAllAsync();
     Task<TEntity> GetByIdAsync(TKeyType id);
-    Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate);
+    Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = null);
     Task<List<TEntity>> FindByAsync(Expression<Func<TEntity, bool>> predicate);
     Task<TEntity> FindOneByAsync(Expression<Func<TEntity, bool>> predicate);
     Task RemoveAsync(TEntity entity);

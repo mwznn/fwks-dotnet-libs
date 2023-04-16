@@ -42,7 +42,7 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity, Guid>, IMon
         return Collection.Find(predicate).FirstOrDefaultAsync();
     }
 
-    public virtual Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = default)
+    public virtual Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = null)
     {
         return FindPageByAsync(currentPage, pageSize, predicate ?? FilterDefinition<TEntity>.Empty);
     }
@@ -53,7 +53,7 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity, Guid>, IMon
         {
             CurrentPage = currentPage,
             PageSize = pageSize,
-            Items = await Collection.Find(filter).Skip(currentPage * pageSize).Limit(pageSize).ToListAsync(),
+            Items = await Collection.Find(filter).Skip((currentPage - 1) * pageSize).Limit(pageSize).ToListAsync(),
             TotalItems = (int)await Collection.CountDocumentsAsync(filter)
         };
     }

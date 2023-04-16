@@ -51,7 +51,7 @@ public abstract class BaseRepository<TEntity, TKeyType> : IRepository<TEntity, T
         return DbSet.AsNoTracking().SingleOrDefaultAsync(predicate);
     }
 
-    public Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate)
+    public Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = null)
     {
         return DbSet.GetPageAsync<TEntity, TKeyType>(currentPage, pageSize, predicate);
     }
