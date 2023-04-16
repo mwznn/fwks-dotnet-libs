@@ -49,12 +49,16 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity, Guid>, IMon
 
     public virtual async Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, FilterDefinition<TEntity> filter)
     {
+        var items = await Collection.Find(filter).Skip((currentPage - 1) * pageSize).Limit(pageSize).ToListAsync();
+
+        var totalItems = (int)await Collection.CountDocumentsAsync(filter);
+
         return new Page<TEntity>
         {
             CurrentPage = currentPage,
             PageSize = pageSize,
-            Items = await Collection.Find(filter).Skip((currentPage - 1) * pageSize).Limit(pageSize).ToListAsync(),
-            TotalItems = (int)await Collection.CountDocumentsAsync(filter)
+            Items = items,
+            TotalItems = totalItems
         };
     }
 
