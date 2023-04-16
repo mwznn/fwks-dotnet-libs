@@ -6,7 +6,6 @@ using Fwks.Core.Abstractions.Repositories;
 using Fwks.Core.Domain;
 using Fwks.Core.Extensions;
 using Fwks.MongoDb.Abstractions;
-using Fwks.MongoDb.Extensions;
 using MongoDB.Driver;
 
 namespace Fwks.MongoDb.Repositories;
@@ -45,12 +44,18 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity, Guid>, IMon
 
     public virtual Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, Expression<Func<TEntity, bool>> predicate = default)
     {
-        return Collection.GetPageAsync(currentPage, pageSize, predicate);
+        return FindPageByAsync(currentPage, pageSize, predicate ?? FilterDefinition<TEntity>.Empty);
     }
 
-    public virtual Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, FilterDefinition<TEntity> filter)
+    public virtual async Task<Page<TEntity>> FindPageByAsync(int currentPage, int pageSize, FilterDefinition<TEntity> filter)
     {
-        return Collection.GetPageAsync(currentPage, pageSize, filter);
+        return new Page<TEntity>
+        {
+            CurrentPage = currentPage,
+            PageSize = pageSize,
+            Items = await Collection.Find(filter).Skip(currentPage * pageSize).Limit(pageSize).ToListAsync(),
+            TotalItems = (int)await Collection.CountDocumentsAsync(filter)
+        };
     }
 
     public Task<List<TEntity>> GetAllAsync()
