@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Text.Json;
+using Fwks.Core.Configuration;
 
 namespace Fwks.Core.Extensions;
 
@@ -51,11 +52,14 @@ public static class SerializationExtensions
         return JsonSerializer.Deserialize<T>((encoding ?? Encoding.UTF8).GetString(source), options);
     }
 
-    private static JsonSerializerOptions BuildOptions(Action<JsonSerializerOptions> optionsAction)
+    private static JsonSerializerOptions BuildOptions(Action<JsonSerializerOptions> optionsAction = default)
     {
+        if (optionsAction == default)
+            return JsonSerializerConfiguration.Instance;
+
         JsonSerializerOptions options = new();
 
-        optionsAction?.Invoke(options);
+        optionsAction.Invoke(options);
 
         return options;
     }
