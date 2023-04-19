@@ -23,14 +23,17 @@ public static class JsonSerializerConfiguration
 
     public static void ConfigureDefault()
     {
-        _default = new()
-        {
-            PropertyNameCaseInsensitive = true,
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            ReferenceHandler = ReferenceHandler.IgnoreCycles
-        };
+        _default = new();
 
-        _default.Converters.Add(new JsonStringEnumConverter());
+        Configure(_default);
+    }
+
+    public static void Configure(JsonSerializerOptions options)
+    {
+        options.PropertyNameCaseInsensitive = true;
+        options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.Converters.Add(new JsonStringEnumConverter());
     }
 
     public static void Configure(Action<JsonSerializerOptions> optionsAction)
